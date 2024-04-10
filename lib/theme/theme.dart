@@ -82,6 +82,10 @@ ThemeData lightMode = ThemeData(
     ),
   ),
 
+  snackBarTheme: const SnackBarThemeData(
+    backgroundColor: Colors.black,
+  ),
+
 );
 
 ThemeData darkMode = ThemeData(
@@ -129,6 +133,10 @@ ThemeData darkMode = ThemeData(
         topRight: Radius.circular(15),
       ),
     ),
+  ),
+
+  snackBarTheme: const SnackBarThemeData(
+    backgroundColor: Colors.black,
   ),
 
 );

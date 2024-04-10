@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:planet_soil/providers/continents_provider.dart';
 import 'package:planet_soil/providers/theme_provider.dart';
 import 'package:planet_soil/screens/entry_screen.dart';
 import 'package:provider/provider.dart';
@@ -8,16 +7,14 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider<ContinentsProvider>(
-          create: (_) => ContinentsProvider()..populateReal(),
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (_) => ThemeProvider()..getSavedTheme(),
         ),
       ],
       child: const App(),
     ),
   );
 }
-
 
 class App extends StatelessWidget {
   const App({super.key});

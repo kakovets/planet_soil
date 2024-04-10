@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../theme/theme.dart';
 
 class ThemeProvider with ChangeNotifier {
@@ -18,5 +19,18 @@ class ThemeProvider with ChangeNotifier {
       themeData = lightMode;
     }
     notifyListeners();
+    saveTheme();
+  }
+
+  Future<ThemeData> getSavedTheme() async {
+    var prefs = await SharedPreferences.getInstance();
+    bool savedThemeIsLight = prefs.getBool('themeIsLight') ?? true;
+    themeData = savedThemeIsLight ? lightMode : darkMode;
+    return savedThemeIsLight ? lightMode : darkMode;
+  }
+
+  void saveTheme() async {
+    var prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('themeIsLight', themeData == lightMode);
   }
 }

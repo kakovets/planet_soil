@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ContinentCard extends StatelessWidget {
+class RegionCard extends StatelessWidget {
 
-  const ContinentCard({
+  const RegionCard({
     super.key,
     required this.name,
     required this.pathToImage,
@@ -16,12 +16,19 @@ class ContinentCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
       child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).colorScheme.outline),
-          image: DecorationImage(
+          border: Border.all(
+            color: Theme.of(context).colorScheme.outline,
+          ),
+          image: pathToImage.isNotEmpty
+              ?
+          DecorationImage(
             image: AssetImage(pathToImage),
             fit: BoxFit.fill, // yes, not the .cover!
-          ),
+          )
+              :
+          null,
           color: Colors.cyan.shade100,
           borderRadius: BorderRadius.circular(24),
         ),
@@ -31,8 +38,9 @@ class ContinentCard extends StatelessWidget {
               // Stroke
               Text(
                 name,
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 20,
                   foreground: Paint()
                     ..style = PaintingStyle.stroke
                     ..strokeWidth = 6
@@ -41,8 +49,9 @@ class ContinentCard extends StatelessWidget {
               ),
               Text(
                 name,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 28,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
               ),

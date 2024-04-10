@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 class DiceIconButton extends StatefulWidget {
 
   /// Dice IconButton, that with [onPressed] performs one full rotation,
-  /// lifts up and land down.
+  /// lifts up and lands down.
   const DiceIconButton({super.key, required this.onPressed,});
 
   final Function onPressed;

@@ -1,6 +1,6 @@
 # planet_soil
 
-App about our Planet, continents and countries.
+App about our Planet and its regions.
 
 ## Getting Started
 

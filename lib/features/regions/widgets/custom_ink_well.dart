@@ -35,7 +35,7 @@ class CustomInkWell extends StatelessWidget {
           width: 30,
           height: 30,
           colorFilter: ColorFilter.mode(
-            Theme.of(context).iconTheme.color!,  // Theme.of(context)
+            Theme.of(context).iconTheme.color!,
             BlendMode.srcIn,
           ),
         ),

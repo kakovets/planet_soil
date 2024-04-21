@@ -14,7 +14,6 @@ abstract class RegionsApi {
   // example: https://api.thecompaniesapi.com/v1/locations/continents?search=africa
   @GET('')
   Future<ApiResponseList> getRegion(@Query('search') String cont);
-
 }
 
 @JsonSerializable()

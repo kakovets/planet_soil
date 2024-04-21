@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:planet_soil/models/region_model.dart';
-import 'package:planet_soil/widgets/image_search.dart';
+import '../../models/region_model.dart';
+import '../image_search.dart';
 
 class RegionSheet extends StatelessWidget {
   const RegionSheet({super.key, required this.region,});

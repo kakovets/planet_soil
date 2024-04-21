@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TextFormScreen extends StatefulWidget {
-  const TextFormScreen({super.key});
+  const TextFormScreen({super.key, required this.text});
+
+  final String text;
 
   @override
   State<TextFormScreen> createState() => _TextFormScreenState();
@@ -25,6 +27,8 @@ class _TextFormScreenState extends State<TextFormScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(widget.text),
+            const SizedBox(height: 16,),
             TextFormField(
               cursorColor: Colors.cyan,
               decoration: InputDecoration(

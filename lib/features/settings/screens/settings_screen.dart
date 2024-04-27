@@ -32,7 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'NAME',
                   subTitle: 'Lando Norris',
                   icon: Icons.edit,
-                  func: () => context.go('/settings/name'),
+                  func: () => context.goNamed('name'),
                 ),
 
                 // UNITS
@@ -40,7 +40,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'UNITS',
                   subTitle: 'Celsius',
                   icon: Icons.thermostat,
-                  func: () => context.go('/settings/units'),
+                  func: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              GestureDetector(
+                                child: Container(
+                                  color: Colors.grey.shade100,
+                                  padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
+                                  child: const Text(
+                                    'Celsius',
+                                    style: TextStyle(fontSize:16),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  context.goNamed(
+                                    'units',
+                                    pathParameters: {'unit': 'celsius'},
+                                  );
+                                },
+                              ),
+                              GestureDetector(
+                                child: Container(
+                                  color: Colors.grey.shade100,
+                                  padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
+                                  child: const Text(
+                                    'Fahrenheit',
+                                    style: TextStyle(fontSize:16),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  context.goNamed(
+                                    'units',
+                                    pathParameters: {'unit': 'fahrenheit'},
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
 
                 // WIFI

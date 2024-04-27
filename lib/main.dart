@@ -7,6 +7,7 @@ import 'core/theme/theme.dart';
 import 'features/regions/route.dart';
 import 'features/settings/route.dart';
 import 'features/settings/screens/inner_settings_screen.dart';
+import 'features/settings/screens/units_screen.dart';
 
 // GoRouter tutorial:
 // https://github.com/bizz84/nested_navigation_examples/tree/main/examples/gorouter
@@ -57,6 +58,7 @@ final goRouter = GoRouter(
           navigatorKey: _shellNavKeyPlanet,
           routes: [
             GoRoute(
+              name: 'planet',
               path: '/planet',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: PlanetRoute(),
@@ -68,32 +70,38 @@ final goRouter = GoRouter(
           navigatorKey: _shellNavKeySettings,
           routes: [
             GoRoute(
+              name: 'settings',
               path: '/settings',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: SettingsRoute(),
               ),
               routes: [
                 GoRoute(
+                  name: 'name',
                   path: 'name',
                   builder: (context, state) =>
                   const InnerSettingsScreen(text: 'name',),
                 ),
                 GoRoute(
-                  path: 'units',
+                  name: 'units',
+                  path: 'units/:unit',
                   builder: (context, state) =>
-                  const InnerSettingsScreen(text: 'units',),
+                  const UnitsScreen(text: 'units',),
                 ),
                 GoRoute(
+                  name: 'wifi',
                   path: 'wifi',
                   builder: (context, state) =>
                   const InnerSettingsScreen(text: 'wifi',),
                 ),
                 GoRoute(
+                  name: 'time',
                   path: 'time',
                   builder: (context, state) =>
                   const InnerSettingsScreen(text: 'time',),
                 ),
                 GoRoute(
+                  name: 'firmware',
                   path: 'firmware',
                   builder: (context, state) =>
                   const InnerSettingsScreen(text: 'firmware',),
